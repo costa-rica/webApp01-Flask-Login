@@ -1,0 +1,27 @@
+<h1>Page - not password protected </h1>
+
+<div style="padding: 10px 10px">
+    {% if current_user.id %}
+    Status: Logged in as <b style="color: green ">{{ current_user.id }}</b>
+    {% else %}
+    Status: <i style="color: gray">Not logged in</i>
+  {% endif %}
+  </div>
+
+
+<div style="padding: 20px 10px">
+    <h2 style= "padding: 0px; margin: 0px;line-height: 100%">Navigation</h2>
+    <div style="display: flex; padding-bottom:20px">
+        
+      <form method="POST" action="">
+        <input type="submit" value="page" name="page">
+        <input type="submit" value="protected_page_1" name="protected_page_1">
+        <input type="submit" value="protected_page_2" name="protected_page_2">
+        {% if current_user.id %}
+            <input type="submit" value="logout" name="logout">
+        {% else %}
+            <input type="submit" value="login" name="login">
+        {% endif %}
+      </form>
+      
+</div>
